@@ -1,4 +1,4 @@
-import { Detail } from "@raycast/api"; 
+import { Detail } from "@raycast/api";
 import { useEffect, useState } from "react";
 
 type WeatherData = {
