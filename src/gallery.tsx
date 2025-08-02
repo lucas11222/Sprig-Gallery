@@ -37,7 +37,7 @@ export default function Command() {
   }
 
   if (gallery.length === 0) {
-    return <Detail markdown="## Loading gallery... If this is stuck try to go back and try again." />;
+    return <Detail markdown="## Loading gallery... If this is stuck try to go back and try again. Maybe its your wifi?" />;
   }
 
   return (
