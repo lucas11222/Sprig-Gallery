@@ -8,12 +8,6 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "hello",
-      "title": "hello",
-      "description": "Say hello. This is a sample command!",
-      "mode": "view"
-    },
-    {
       "name": "gallery",
       "title": "Gallery",
       "description": "Show all the games in sprig!!",

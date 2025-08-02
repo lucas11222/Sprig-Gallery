@@ -1,17 +1,17 @@
-import { Detail, List } from "@raycast/api";
+import { Action, ActionPanel, Detail, List, Color } from "@raycast/api";
 import { useEffect, useState } from "react";
-import { usePromise } from "@raycast/utils";
-import { setTimeout } from "node:timers/promises";
+import { showFailureToast } from "@raycast/utils";
 
 type ListData = {
   filename: string;
   title: string;
   author: string;
   description: string;
+  isNew: boolean;
 };
 
 function truncate(text: string, maxLength: number): string {
-    return text.length > maxLength ? text.slice(0, maxLength) + "…" : text;
+  return text.length > maxLength ? text.slice(0, maxLength) + "…" : text;
 }
 
 export default function Command() {
@@ -31,7 +31,7 @@ export default function Command() {
   }, []);
 
   if (error) {
-    return <Detail markdown={`# Oh uh! Error:\n${error}`} />;
+    showFailureToast(error, { title: "Oh uh! Something went wrong!" });
   }
 
   if (gallery.length === 0) {
@@ -45,11 +45,22 @@ export default function Command() {
           key={item.filename}
           title={item.title}
           subtitle={item.author}
-          accessories={[{ text: truncate(item.description, 80) }]}
+          accessories={[
+            {
+              text: {
+                value: truncate((item.isNew ? "New! " : "") + item.description, 80),
+                color: item.isNew ? Color.Yellow : undefined,
+              },
+            },
+          ]}
           keywords={[item.filename, item.author]}
+          actions={
+            <ActionPanel>
+              <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} />
+            </ActionPanel>
+          }
         />
       ))}
     </List>
   );
 }
-
