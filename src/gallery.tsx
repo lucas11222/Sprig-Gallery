@@ -8,6 +8,7 @@ type ListData = {
   author: string;
   description: string;
   isNew: boolean;
+  tags: string[];
 };
 
 function truncate(text: string, maxLength: number): string {
@@ -21,7 +22,7 @@ export default function Command() {
   useEffect(() => {
     fetch("https://sprig.hackclub.com/api/gallery")
       .then((res) => {
-        if (!res.ok) throw new Error("Network response was not ok :(");
+        if (!res.ok) throw new Error("Network response was not ok :( maybe check wifi?");
         return res.json() as Promise<ListData[]>;
       })
       .then((data) => {
@@ -32,11 +33,11 @@ export default function Command() {
 
   if (error) {
     showFailureToast(error, { title: "Oh uh! Something went wrong!" });
-    return <Detail markdown={`Error: ${error}`} />;
+    return <Detail markdown={`THE ERROR: ${error}`} />;
   }
 
   if (gallery.length === 0) {
-    return <Detail markdown="# Loading gallery... If this is stuck try to go back and try again." />;
+    return <Detail markdown="## Loading gallery... If this is stuck try to go back and try again." />;
   }
 
   return (
@@ -49,12 +50,12 @@ export default function Command() {
           accessories={[
             {
               text: {
-                value: truncate((item.isNew ? "New! " : "") + item.description, 80),
+                value: truncate((item.isNew ? "New game! " : "") + item.description, 80),
                 color: item.isNew ? Color.Yellow : undefined,
               },
             },
           ]}
-          keywords={[item.filename, item.author]}
+          keywords={[item.filename, item.author, item.title, ...item.tags]}
           actions={
             <ActionPanel title={"Open " + item.title}>
               <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Play in Browser"/>
