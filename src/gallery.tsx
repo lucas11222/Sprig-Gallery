@@ -58,9 +58,21 @@ export default function Command() {
           keywords={[item.filename, item.author, item.title, ...item.tags]}
           actions={
             <ActionPanel title={"Open " + item.title}>
-              <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Play in Browser"/>
-              <Action.CopyToClipboard content={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Copy the URL" shortcut={{modifiers: ["cmd"], key: "c"}}/>
-              <Action.OpenInBrowser url={`https://sprig.hackclub.com/~/new-game?remix=${item.filename}`} title="Remix the Game." shortcut={{modifiers: ["cmd"], key: "r"}} icon={{ source: Icon.Repeat }}/>
+              <Action.OpenInBrowser
+                url={`https://sprig.hackclub.com/gallery/play/${item.filename}`}
+                title="Play in Browser"
+              />
+              <Action.CopyToClipboard
+                content={`https://sprig.hackclub.com/gallery/play/${item.filename}`}
+                title="Copy the URL"
+                shortcut={{ modifiers: ["cmd"], key: "c" }}
+              />
+              <Action.OpenInBrowser
+                url={`https://sprig.hackclub.com/~/new-game?remix=${item.filename}`}
+                title="Remix the Game."
+                shortcut={{ modifiers: ["cmd"], key: "r" }}
+                icon={{ source: Icon.Repeat }}
+              />
             </ActionPanel>
           }
         />
