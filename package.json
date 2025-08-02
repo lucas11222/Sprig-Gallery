@@ -3,7 +3,7 @@
   "name": "sprig-raycast",
   "title": "Sprig Raycast",
   "description": "An raycast extension that lets you see all sprig projects without going into the galery.",
-  "icon": "extension-icon.png",
+  "icon": "favicon.png",
   "author": "lucas11",
   "license": "MIT",
   "commands": [

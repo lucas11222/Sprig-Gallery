@@ -1,21 +1,4 @@
-# Hello World
+# Sprig Raycast
 
-This is a sample extension template. Please edit me!
+Sprig Raycast is a extension that lets you see all the projects in the [Sprig gallery](https://sprig.hackclub.com/gallery). You can open the games, remix it (aka fork it) and copy the link!
 
-# Quick start
-
-Install the require dependencies:
-
-```bash
-npm install
-```
-
-Run the extension in development mode
-
-```bash
-npm run dev
-```
-
-You should be able to find the "Hello" command in Raycast!
-
-See the [Raycast Developer Documentation](https://developers.raycast.com) for more information!

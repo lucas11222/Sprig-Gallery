@@ -1,4 +1,4 @@
-import { Action, ActionPanel, Detail, List, Color } from "@raycast/api";
+import { Action, ActionPanel, Detail, List, Color, Icon } from "@raycast/api";
 import { useEffect, useState } from "react";
 import { showFailureToast } from "@raycast/utils";
 
@@ -32,6 +32,7 @@ export default function Command() {
 
   if (error) {
     showFailureToast(error, { title: "Oh uh! Something went wrong!" });
+    return <Detail markdown={`Error: ${error}`} />;
   }
 
   if (gallery.length === 0) {
@@ -56,8 +57,9 @@ export default function Command() {
           keywords={[item.filename, item.author]}
           actions={
             <ActionPanel>
-              <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Play in browser"/>
-              <Action.OpenInBrowser url={`https://sprig.hackclub.com/~/new-game?remix=${item.filename}`} title="Remix the game."/>
+              <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Play in Browser"/>
+              <Action.CopyToClipboard content={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Copy the URL" shortcut={{modifiers: ["cmd"], key: "c"}}/>
+              <Action.OpenInBrowser url={`https://sprig.hackclub.com/~/new-game?remix=${item.filename}`} title="Remix the Game." shortcut={{modifiers: ["cmd"], key: "r"}} icon={{ source: Icon.Repeat }}/>
             </ActionPanel>
           }
         />
