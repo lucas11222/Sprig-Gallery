@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "sprig-raycast",
-  "title": "Sprig Raycast",
+  "name": "sprig-gallery",
+  "title": "Sprig Gallery",
   "description": "An raycast extension that lets you see all sprig projects without going into the galery.",
   "icon": "favicon.png",
   "author": "lucas11",
