@@ -36,7 +36,7 @@ export default function Command() {
   }
 
   if (gallery.length === 0) {
-    return <Detail markdown="# Loading gallery..." />;
+    return <Detail markdown="# Loading gallery... If this is stuck try to go back and try again." />;
   }
 
   return (
@@ -56,11 +56,10 @@ export default function Command() {
           ]}
           keywords={[item.filename, item.author]}
           actions={
-            <ActionPanel>
+            <ActionPanel title={"Open " + item.title}>
               <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Play in Browser"/>
               <Action.CopyToClipboard content={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Copy the URL" shortcut={{modifiers: ["cmd"], key: "c"}}/>
               <Action.OpenInBrowser url={`https://sprig.hackclub.com/~/new-game?remix=${item.filename}`} title="Remix the Game." shortcut={{modifiers: ["cmd"], key: "r"}} icon={{ source: Icon.Repeat }}/>
-              <Action.OpenInBrowser url={`https://sprig.hackclub.com/~/new-game`} title="Open Editor." shortcut={{modifiers: ["cmd"], key: "e"}} icon={{ source: Icon.EditShape }}/>
             </ActionPanel>
           }
         />
