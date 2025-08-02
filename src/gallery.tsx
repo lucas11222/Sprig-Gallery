@@ -36,7 +36,7 @@ export default function Command() {
   }
 
   if (gallery.length === 0) {
-    return <Detail markdown="Loading gallery..." />;
+    return <Detail markdown="# Loading gallery..." />;
   }
 
   return (

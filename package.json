@@ -2,15 +2,16 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "sprig-gallery",
   "title": "Sprig Gallery",
-  "description": "An raycast extension that lets you see all sprig projects without going into the galery.",
-  "icon": "favicon.png",
+  "description": "An extension that lets you see all Sprig projects without going into the galery.",
+  "icon": "extension_icon.png",
   "author": "lucas11",
   "license": "MIT",
+  "categories": ["Web"],
   "commands": [
     {
       "name": "gallery",
       "title": "Gallery",
-      "description": "Show all the games in sprig!!",
+      "description": "Show all the games in Sprig's Gallery!",
       "mode": "view"
     }
   ],
