@@ -56,7 +56,8 @@ export default function Command() {
           keywords={[item.filename, item.author]}
           actions={
             <ActionPanel>
-              <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} />
+              <Action.OpenInBrowser url={`https://sprig.hackclub.com/gallery/play/${item.filename}`} title="Play in browser"/>
+              <Action.OpenInBrowser url={`https://sprig.hackclub.com/~/new-game?remix=${item.filename}`} title="Remix the game."/>
             </ActionPanel>
           }
         />
